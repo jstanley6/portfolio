@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Jason Stanley — Developer</title>
+  <meta name="description" content="Self-taught developer. U.S. Army veteran. I build full-stack web applications, investigative journalism platforms, and data-driven tools.">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+  <style>
+    :root {
+      --bg: #080a0f;
+      --surface: #0d1117;
+      --surface2: #161b22;
+      --border: #21262d;
+      --border2: #30363d;
+      --fg: #e6edf3;
+      --fg2: #8b949e;
+      --muted: #484f58;
+      --accent: #58a6ff;
+      --green: #3fb950;
+      --purple: #bc8cff;
+      --orange: #ffa657;
+      --mono: 'IBM Plex Mono', monospace;
+      --sans: 'IBM Plex Sans', system-ui, sans-serif;
+      color-scheme: dark;
+    }
+    @media (prefers-color-scheme: light) {
+      :root:not([data-theme="dark"]) {
+        --bg: #ffffff; --surface: #f6f8fa; --surface2: #eaeef2;
+        --border: #d0d7de; --border2: #afb8c1; --fg: #1f2328;
+        --fg2: #656d76; --muted: #afb8c1; --accent: #0969da;
+        --green: #1a7f37; --purple: #8250df; --orange: #bc4c00;
+        color-scheme: light;
+      }
+    }
+    :root[data-theme="light"] {
+      --bg: #ffffff; --surface: #f6f8fa; --surface2: #eaeef2;
+      --border: #d0d7de; --border2: #afb8c1; --fg: #1f2328;
+      --fg2: #656d76; --muted: #afb8c1; --accent: #0969da;
+      --green: #1a7f37; --purple: #8250df; --orange: #bc4c00;
+      color-scheme: light;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg); color: var(--fg);
+      font-family: var(--sans); font-size: 15px; line-height: 1.6;
+    }
+
+    /* NAV */
+    nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 40px; height: 56px;
+      border-bottom: 1px solid var(--border);
+      background: var(--surface);
+      position: sticky; top: env(safe-area-inset-top, 0px); z-index: 100;
+    }
+    .nav-logo { font-family: var(--mono); font-size: 14px; font-weight: 600; color: var(--fg); letter-spacing: -0.3px; }
+    .nav-logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 24px; align-items: center; }
+    .nav-links a { font-family: var(--mono); font-size: 12px; color: var(--fg2); text-decoration: none; transition: color 0.15s; }
+    .nav-links a:hover { color: var(--fg); }
+    .nav-hire { color: var(--accent) !important; border: 1px solid var(--accent); padding: 5px 14px; border-radius: 6px; }
+    .nav-hire:hover { background: var(--accent) !important; color: var(--bg) !important; }
+
+    /* HERO */
+    .hero { max-width: 860px; margin: 0 auto; padding: 80px 40px 64px; }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: var(--mono); font-size: 11px; color: var(--green);
+      border: 1px solid rgba(63,185,80,0.3); padding: 4px 12px; border-radius: 20px;
+      margin-bottom: 28px;
+    }
+    .hero-tag::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--green); animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+    .hero h1 { font-size: clamp(36px, 6vw, 60px); font-weight: 600; line-height: 1.1; letter-spacing: -1px; margin-bottom: 20px; text-wrap: balance; }
+    .hero h1 .hl { color: var(--accent); }
+    .hero-sub { font-size: 18px; color: var(--fg2); max-width: 540px; line-height: 1.65; margin-bottom: 32px; }
+    .hero-creds { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 36px; }
+    .cred-chip {
+      font-family: var(--mono); font-size: 11px; color: var(--fg2);
+      background: var(--surface); border: 1px solid var(--border2);
+      padding: 5px 12px; border-radius: 4px;
+    }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--accent); color: var(--bg);
+      font-family: var(--mono); font-size: 12px; font-weight: 600;
+      padding: 10px 24px; border-radius: 6px; text-decoration: none;
+      transition: opacity 0.15s;
+    }
+    .btn-primary:hover { opacity: 0.85; }
+    .btn-ghost {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--surface); color: var(--fg);
+      font-family: var(--mono); font-size: 12px;
+      padding: 10px 24px; border-radius: 6px; border: 1px solid var(--border2);
+      text-decoration: none; transition: border-color 0.15s;
+    }
+    .btn-ghost:hover { border-color: var(--fg2); }
+
+    /* SKILLS BAR */
+    .skills-bar {
+      background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+      padding: 20px 40px; display: flex; align-items: center; gap: 12px;
+      overflow-x: auto; white-space: nowrap;
+    }
+    .skills-label { font-family: var(--mono); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); flex-shrink: 0; margin-right: 8px; }
+    .skill-tag {
+      font-family: var(--mono); font-size: 11px; color: var(--fg2);
+      background: var(--surface2); border: 1px solid var(--border);
+      padding: 4px 10px; border-radius: 4px; flex-shrink: 0;
+    }
+
+    /* SECTIONS */
+    .section { max-width: 860px; margin: 0 auto; padding: 64px 40px; border-bottom: 1px solid var(--border); }
+    .section-eyebrow {
+      font-family: var(--mono); font-size: 11px; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 8px;
+    }
+    .section h2 { font-size: clamp(24px, 4vw, 36px); font-weight: 600; letter-spacing: -0.5px; margin-bottom: 12px; }
+    .section-intro { font-size: 15px; color: var(--fg2); max-width: 600px; margin-bottom: 40px; line-height: 1.65; }
+
+    /* PROJECT CARDS */
+    .projects { display: flex; flex-direction: column; gap: 20px; }
+    .project-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 8px; overflow: hidden;
+      transition: border-color 0.2s;
+    }
+    .project-card:hover { border-color: var(--border2); }
+    .project-head {
+      padding: 24px 28px 20px;
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+    }
+    .project-title { font-size: 18px; font-weight: 600; color: var(--fg); margin-bottom: 6px; }
+    .project-url { font-family: var(--mono); font-size: 12px; color: var(--accent); text-decoration: none; }
+    .project-url:hover { text-decoration: underline; }
+    .project-badges { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 4px; }
+    .pbadge {
+      font-family: var(--mono); font-size: 10px; letter-spacing: 0.5px;
+      padding: 3px 8px; border-radius: 3px; border: 1px solid;
+    }
+    .pbadge-live { color: var(--green); border-color: rgba(63,185,80,0.4); background: rgba(63,185,80,0.08); }
+    .pbadge-react { color: var(--accent); border-color: rgba(88,166,255,0.4); background: rgba(88,166,255,0.08); }
+    .pbadge-node { color: var(--green); border-color: rgba(63,185,80,0.4); background: rgba(63,185,80,0.08); }
+    .pbadge-supabase { color: var(--purple); border-color: rgba(188,140,255,0.4); background: rgba(188,140,255,0.08); }
+    .pbadge-html { color: var(--orange); border-color: rgba(255,166,87,0.4); background: rgba(255,166,87,0.08); }
+    .project-gh { font-family: var(--mono); font-size: 11px; color: var(--fg2); text-decoration: none; border: 1px solid var(--border2); padding: 6px 14px; border-radius: 6px; white-space: nowrap; transition: border-color 0.15s, color 0.15s; }
+    .project-gh:hover { color: var(--fg); border-color: var(--fg2); }
+    .project-body { padding: 20px 28px; }
+    .project-desc { font-size: 14px; color: var(--fg2); line-height: 1.7; margin-bottom: 18px; }
+    .project-features { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .project-features li {
+      font-family: var(--mono); font-size: 12px; color: var(--fg2);
+      display: flex; align-items: baseline; gap: 10px;
+    }
+    .project-features li::before { content: '→'; color: var(--accent); flex-shrink: 0; }
+
+    /* STACK GRID */
+    .stack-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px; }
+    .stack-item {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 6px; padding: 16px;
+    }
+    .stack-icon { font-size: 20px; margin-bottom: 8px; }
+    .stack-name { font-family: var(--mono); font-size: 13px; font-weight: 500; color: var(--fg); margin-bottom: 4px; }
+    .stack-level { font-size: 11px; color: var(--fg2); }
+
+    /* ABOUT */
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+    .about-block h3 { font-family: var(--mono); font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
+    .about-block p { font-size: 14px; color: var(--fg2); line-height: 1.75; }
+    .about-block ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .about-block li { font-size: 14px; color: var(--fg2); display: flex; align-items: baseline; gap: 10px; }
+    .about-block li::before { content: '▸'; color: var(--accent); font-size: 10px; flex-shrink: 0; }
+
+    /* CONTACT */
+    .contact-box {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 8px; padding: 36px; text-align: center;
+    }
+    .contact-box h3 { font-size: 22px; font-weight: 600; margin-bottom: 10px; }
+    .contact-box p { color: var(--fg2); max-width: 460px; margin: 0 auto 28px; font-size: 14px; line-height: 1.65; }
+    .contact-email { font-family: var(--mono); font-size: 16px; color: var(--accent); margin-bottom: 24px; }
+    .contact-links { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
+
+    /* FOOTER */
+    footer {
+      max-width: 860px; margin: 0 auto; padding: 28px 40px;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+    }
+    .footer-left { font-family: var(--mono); font-size: 11px; color: var(--muted); }
+    .footer-right { display: flex; gap: 20px; }
+    .footer-right a { font-family: var(--mono); font-size: 11px; color: var(--muted); text-decoration: none; }
+    .footer-right a:hover { color: var(--fg2); }
+
+    /* RESPONSIVE */
+    @media (max-width: 640px) {
+      nav { padding: 0 16px; }
+      .nav-links a:not(.nav-hire) { display: none; }
+      .hero, .section { padding-inline: 16px; }
+      .hero h1 { font-size: 32px; }
+      .about-grid { grid-template-columns: 1fr; }
+      .skills-bar { padding: 16px; }
+      footer { padding-inline: 16px; }
+      .project-head { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">jason<span>.</span>dev</div>
+  <div class="nav-links">
+    <a href="#projects">Projects</a>
+    <a href="#stack">Stack</a>
+    <a href="#about">About</a>
+    <a href="#contact" class="nav-hire">Hire Me</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-tag">Available for freelance work</div>
+  <h1>Self-taught.<br>Production-grade.<br><span class="hl">Ships fast.</span></h1>
+  <p class="hero-sub">I build full-stack web applications, investigative data tools, and production sites. No degree — just working code in the real world.</p>
+  <div class="hero-creds">
+    <span class="cred-chip">U.S. Army Veteran</span>
+    <span class="cred-chip">Self-Taught</span>
+    <span class="cred-chip">2 Live Production Apps</span>
+    <span class="cred-chip">React · Node · Supabase</span>
+    <span class="cred-chip">Deployed on Railway</span>
+  </div>
+  <div class="hero-actions">
+    <a href="#contact" class="btn-primary">Get in Touch</a>
+    <a href="#projects" class="btn-ghost">See My Work ↓</a>
+  </div>
+</section>
+
+<!-- SKILLS BAR -->
+<div class="skills-bar">
+  <span class="skills-label">Stack</span>
+  <span class="skill-tag">JavaScript</span>
+  <span class="skill-tag">React</span>
+  <span class="skill-tag">Node.js</span>
+  <span class="skill-tag">Express</span>
+  <span class="skill-tag">HTML / CSS</span>
+  <span class="skill-tag">Supabase</span>
+  <span class="skill-tag">PostgreSQL</span>
+  <span class="skill-tag">Git / GitHub</span>
+  <span class="skill-tag">Railway</span>
+  <span class="skill-tag">REST APIs</span>
+  <span class="skill-tag">Responsive Design</span>
+</div>
+
+<!-- PROJECTS -->
+<section class="section" id="projects">
+  <div class="section-eyebrow">Work</div>
+  <h2>Production Projects</h2>
+  <p class="section-intro">Both apps are live, handling real users, and deployed to Railway. Not side projects — active operations.</p>
+
+  <div class="projects">
+
+    <!-- PROJECT 1 -->
+    <div class="project-card">
+      <div class="project-head">
+        <div>
+          <div class="project-title">Kootenai County Corruption</div>
+          <a href="https://kootenaicountycorruption.org" target="_blank" rel="noopener" class="project-url">kootenaicountycorruption.org ↗</a>
+          <div class="project-badges">
+            <span class="pbadge pbadge-live">Live</span>
+            <span class="pbadge pbadge-react">React</span>
+            <span class="pbadge pbadge-node">Node / Express</span>
+            <span class="pbadge pbadge-supabase">Supabase</span>
+          </div>
+        </div>
+        <a href="https://github.com/jstanley6/kcgovcorruption-site" target="_blank" rel="noopener" class="project-gh">GitHub ↗</a>
+      </div>
+      <div class="project-body">
+        <p class="project-desc">Full-stack investigative journalism platform covering government misconduct in northern Idaho. Built from scratch — React frontend, Express backend, Supabase database for testimonies, petitions, and public records tracker. Auto-deploys to Railway on push.</p>
+        <ul class="project-features">
+          <li>React SPA with React Router, component-based article templating system</li>
+          <li>Express REST API serving dynamic article and document data from Supabase (PostgreSQL)</li>
+          <li>Public testimony submission with Supabase backend — real user data in production</li>
+          <li>Idaho PRA tracker — public records requests filed, tracked, and published</li>
+          <li>SEO-optimized article pages with structured data, dynamic meta tags</li>
+          <li>Railway CI/CD — auto-deploy on every push to main</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- PROJECT 2 -->
+    <div class="project-card">
+      <div class="project-head">
+        <div>
+          <div class="project-title">Stanley Research Group</div>
+          <a href="https://stanleyresearchgroup.com" target="_blank" rel="noopener" class="project-url">stanleyresearchgroup.com ↗</a>
+          <div class="project-badges">
+            <span class="pbadge pbadge-live">Live</span>
+            <span class="pbadge pbadge-html">HTML / CSS / JS</span>
+            <span class="pbadge pbadge-node">Node / Express</span>
+          </div>
+        </div>
+        <a href="https://github.com/jstanley6/stanley-research" target="_blank" rel="noopener" class="project-gh">GitHub ↗</a>
+      </div>
+      <div class="project-body">
+        <p class="project-desc">Professional landing page for OSINT research services targeting plaintiff attorneys. Single-page HTML with a custom dark design system, dynamic contact form that builds pre-filled email drafts client-side, and a minimal Express static server. Custom domain via Namecheap + Railway.</p>
+        <ul class="project-features">
+          <li>Pure HTML/CSS/JS — zero frameworks, zero dependencies in the browser</li>
+          <li>Custom "classified dossier" design system — IBM Plex Mono/Serif, Bebas Neue, amber/gold palette</li>
+          <li>Dynamic inquiry form — builds mailto: with encoded subject/body from form state, clipboard fallback</li>
+          <li>Custom domain (stanleyresearchgroup.com) via Railway + Namecheap DNS config</li>
+          <li>Full dark/light theme — CSS custom properties, prefers-color-scheme media query</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- STACK -->
+<section class="section" id="stack">
+  <div class="section-eyebrow">Skills</div>
+  <h2>What I Work With</h2>
+  <p class="section-intro">Everything below has been used in a live production app, not just a tutorial.</p>
+  <div class="stack-grid">
+    <div class="stack-item"><div class="stack-icon">⚛️</div><div class="stack-name">React</div><div class="stack-level">SPA, routing, hooks, component architecture</div></div>
+    <div class="stack-item"><div class="stack-icon">🟨</div><div class="stack-name">JavaScript</div><div class="stack-level">ES6+, async/await, DOM manipulation</div></div>
+    <div class="stack-item"><div class="stack-icon">🟢</div><div class="stack-name">Node / Express</div><div class="stack-level">REST APIs, static serving, middleware</div></div>
+    <div class="stack-item"><div class="stack-icon">🗄️</div><div class="stack-name">Supabase</div><div class="stack-level">PostgreSQL, auth, real-time, storage</div></div>
+    <div class="stack-item"><div class="stack-icon">🎨</div><div class="stack-name">HTML / CSS</div><div class="stack-level">Semantic markup, Flexbox, Grid, custom properties</div></div>
+    <div class="stack-item"><div class="stack-icon">🚂</div><div class="stack-name">Railway</div><div class="stack-level">Deploy, env vars, custom domains, CI/CD</div></div>
+    <div class="stack-item"><div class="stack-icon">🐙</div><div class="stack-name">Git / GitHub</div><div class="stack-level">Branching, commits, push/pull, repo management</div></div>
+    <div class="stack-item"><div class="stack-icon">📱</div><div class="stack-name">Responsive Design</div><div class="stack-level">Mobile-first, media queries, safe-area insets</div></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="section-eyebrow">Background</div>
+  <h2>Who I Am</h2>
+  <div class="about-grid">
+    <div class="about-block">
+      <h3>The short version</h3>
+      <p>U.S. Army veteran turned investigative journalist. I taught myself to code by building tools I actually needed — a journalism platform, a research site, a public records tracker. No bootcamp, no degree. Two production apps, real users, real data.</p>
+    </div>
+    <div class="about-block">
+      <h3>What I can build for you</h3>
+      <ul>
+        <li>Landing pages and marketing sites</li>
+        <li>Full-stack web apps (React + Node + database)</li>
+        <li>Small business websites</li>
+        <li>Data display and document tools</li>
+        <li>Production deploys on Railway or similar</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+  <div class="contact-box">
+    <h3>Let's work together</h3>
+    <p>Available for freelance projects. I work fast, communicate clearly, and ship working code. No degree — but two live production apps say more than a transcript.</p>
+    <div class="contact-email">jasonstanl3y@gmail.com</div>
+    <div class="contact-links">
+      <a href="mailto:jasonstanl3y@gmail.com" class="btn-primary">Send an Email</a>
+      <a href="https://github.com/jstanley6" target="_blank" rel="noopener" class="btn-ghost">GitHub ↗</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-left">Jason Stanley · Self-taught developer · U.S. Army Veteran</div>
+  <div class="footer-right">
+    <a href="https://stanleyresearchgroup.com" target="_blank" rel="noopener">Research Work</a>
+    <a href="https://kootenaicountycorruption.org" target="_blank" rel="noopener">Journalism</a>
+    <a href="https://github.com/jstanley6" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</footer>
+
+</body>
+</html>
