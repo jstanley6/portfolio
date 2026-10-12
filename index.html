@@ -186,6 +186,22 @@
     .contact-email { font-family: var(--mono); font-size: 16px; color: var(--accent); margin-bottom: 24px; }
     .contact-links { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
 
+    /* CASE STUDY */
+    .case-study { display: flex; flex-direction: column; gap: 0; margin-bottom: 18px; border: 1px solid var(--border); border-radius: 6px; overflow: hidden; }
+    .cs-block { display: grid; grid-template-columns: 72px 1fr; gap: 12px; padding: 10px 14px; border-bottom: 1px solid var(--border); }
+    .cs-block:last-child { border-bottom: none; }
+    .cs-label { font-family: var(--mono); font-size: 10px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--accent); padding-top: 2px; }
+    .cs-text { font-size: 12.5px; color: var(--fg2); line-height: 1.65; }
+
+    /* AI SECTION */
+    .ai-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
+    .ai-card { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 18px; }
+    .ai-card-icon { font-size: 22px; margin-bottom: 10px; }
+    .ai-card-title { font-family: var(--mono); font-size: 12px; font-weight: 600; color: var(--fg); margin-bottom: 6px; }
+    .ai-card-desc { font-size: 12.5px; color: var(--fg2); line-height: 1.65; }
+    .stack-item-ai { border-color: rgba(88,166,255,0.35); background: rgba(88,166,255,0.05); }
+    .stack-item-ai .stack-name { color: var(--accent); }
+
     /* FOOTER */
     footer {
       max-width: 860px; margin: 0 auto; padding: 28px 40px;
@@ -216,6 +232,7 @@
   <div class="nav-links">
     <a href="#projects">Projects</a>
     <a href="#stack">Stack</a>
+    <a href="#ai">AI Workflow</a>
     <a href="#about">About</a>
     <a href="#contact" class="nav-hire">Hire Me</a>
   </div>
@@ -223,7 +240,7 @@
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-tag">Available for freelance work</div>
+  <div class="hero-tag">Available for freelance · remote work</div>
   <h1>Self-taught.<br>Production-grade.<br><span class="hl">Ships fast.</span></h1>
   <p class="hero-sub">I build full-stack web applications, investigative data tools, and production sites. No degree — just working code in the real world.</p>
   <div class="hero-creds">
@@ -231,6 +248,7 @@
     <span class="cred-chip">Self-Taught</span>
     <span class="cred-chip">2 Live Production Apps</span>
     <span class="cred-chip">React · Node · Supabase</span>
+    <span class="cred-chip">AI-Augmented Dev</span>
     <span class="cred-chip">Deployed on Railway</span>
   </div>
   <div class="hero-actions">
@@ -279,7 +297,11 @@
         <a href="https://github.com/jstanley6/kcgovcorruption-site" target="_blank" rel="noopener" class="project-gh">GitHub ↗</a>
       </div>
       <div class="project-body">
-        <p class="project-desc">Full-stack investigative journalism platform covering government misconduct in northern Idaho. Built from scratch — React frontend, Express backend, Supabase database for testimonies, petitions, and public records tracker. Auto-deploys to Railway on push.</p>
+        <div class="case-study">
+          <div class="cs-block"><span class="cs-label">Problem</span><span class="cs-text">Needed a full publishing platform for an active government misconduct investigation — structured articles, live document hosting, public testimony collection, and a public records tracker. Nothing off-the-shelf fit.</span></div>
+          <div class="cs-block"><span class="cs-label">Built</span><span class="cs-text">React SPA + Express REST API + Supabase (PostgreSQL). Component-based article templating system, testimony submission with live backend, Idaho PRA tracker, SEO-optimized pages with dynamic meta tags. Railway CI/CD — deploys on push.</span></div>
+          <div class="cs-block"><span class="cs-label">Outcome</span><span class="cs-text">Live, active investigative platform. Real user submissions in production. 200+ primary source documents published. Platform has been cited in litigation context by plaintiff attorneys in active federal cases.</span></div>
+        </div>
         <ul class="project-features">
           <li>React SPA with React Router, component-based article templating system</li>
           <li>Express REST API serving dynamic article and document data from Supabase (PostgreSQL)</li>
@@ -306,7 +328,11 @@
         <a href="https://github.com/jstanley6/stanley-research" target="_blank" rel="noopener" class="project-gh">GitHub ↗</a>
       </div>
       <div class="project-body">
-        <p class="project-desc">Professional landing page for OSINT research services targeting plaintiff attorneys. Single-page HTML with a custom dark design system, dynamic contact form that builds pre-filled email drafts client-side, and a minimal Express static server. Custom domain via Namecheap + Railway.</p>
+        <div class="case-study">
+          <div class="cs-block"><span class="cs-label">Problem</span><span class="cs-text">Needed a professional services site to sell OSINT research to plaintiff attorneys — credibility-forward, zero backend complexity, custom domain, fast to ship.</span></div>
+          <div class="cs-block"><span class="cs-label">Built</span><span class="cs-text">Pure HTML/CSS/JS with a custom "classified dossier" design system. IBM Plex Mono/Serif, Bebas Neue, amber/gold palette. Dynamic inquiry form builds pre-filled mailto: drafts client-side. Full dark/light theme via CSS custom properties. Deployed Railway + Namecheap DNS end-to-end.</span></div>
+          <div class="cs-block"><span class="cs-label">Outcome</span><span class="cs-text">Live at stanleyresearchgroup.com. Used as the professional front for active attorney outreach — 8 plaintiff attorneys contacted in first week of launch.</span></div>
+        </div>
         <ul class="project-features">
           <li>Pure HTML/CSS/JS — zero frameworks, zero dependencies in the browser</li>
           <li>Custom "classified dossier" design system — IBM Plex Mono/Serif, Bebas Neue, amber/gold palette</li>
@@ -334,6 +360,37 @@
     <div class="stack-item"><div class="stack-icon">🚂</div><div class="stack-name">Railway</div><div class="stack-level">Deploy, env vars, custom domains, CI/CD</div></div>
     <div class="stack-item"><div class="stack-icon">🐙</div><div class="stack-name">Git / GitHub</div><div class="stack-level">Branching, commits, push/pull, repo management</div></div>
     <div class="stack-item"><div class="stack-icon">📱</div><div class="stack-name">Responsive Design</div><div class="stack-level">Mobile-first, media queries, safe-area insets</div></div>
+    <div class="stack-item stack-item-ai"><div class="stack-icon">🤖</div><div class="stack-name">AI-Augmented Dev</div><div class="stack-level">Claude Code, agentic workflows, shipping 10x faster</div></div>
+    <div class="stack-item"><div class="stack-icon">🌐</div><div class="stack-name">DNS / Domains</div><div class="stack-level">Namecheap, Railway, CNAME, subdomain config</div></div>
+  </div>
+</section>
+
+<!-- AI SECTION -->
+<section class="section" id="ai">
+  <div class="section-eyebrow">Workflow</div>
+  <h2>AI-Augmented Development</h2>
+  <p class="section-intro">I build with Claude Code as an active part of my workflow — not as a crutch, but as a force multiplier. Here's what that actually looks like.</p>
+  <div class="ai-grid">
+    <div class="ai-card">
+      <div class="ai-card-icon">⚡</div>
+      <div class="ai-card-title">Ship velocity</div>
+      <div class="ai-card-desc">I shipped two production apps — full-stack, custom design systems, Railway deployments, DNS config — in weeks, not months. AI-augmented development is how.</div>
+    </div>
+    <div class="ai-card">
+      <div class="ai-card-icon">🔍</div>
+      <div class="ai-card-desc">I diagnose production bugs fast. Null vs. undefined array crashes from Supabase, DNS record conflicts, React Router edge cases — I find the root cause and fix it in the same session.</div>
+      <div class="ai-card-title">Debug speed</div>
+    </div>
+    <div class="ai-card">
+      <div class="ai-card-icon">🏗️</div>
+      <div class="ai-card-title">Full ownership</div>
+      <div class="ai-card-desc">I own the whole stack — frontend, backend, database, deployment, domain. No handoffs. No "that's not my part." I built it, I maintain it, I understand every layer.</div>
+    </div>
+    <div class="ai-card">
+      <div class="ai-card-icon">📦</div>
+      <div class="ai-card-title">Real deliverables</div>
+      <div class="ai-card-desc">Everything I build ships to production. Not demo apps, not sandbox experiments — live URLs, real users, real data. That's the standard I hold myself to.</div>
+    </div>
   </div>
 </section>
 
@@ -368,6 +425,8 @@
     <div class="contact-links">
       <a href="mailto:jasonstanl3y@gmail.com" class="btn-primary">Send an Email</a>
       <a href="https://github.com/jstanley6" target="_blank" rel="noopener" class="btn-ghost">GitHub ↗</a>
+      <a href="https://arc.dev" target="_blank" rel="noopener" class="btn-ghost">Arc.dev ↗</a>
+      <a href="https://www.turing.com" target="_blank" rel="noopener" class="btn-ghost">Turing ↗</a>
     </div>
   </div>
 </section>
