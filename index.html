@@ -202,6 +202,20 @@
     .stack-item-ai { border-color: rgba(88,166,255,0.35); background: rgba(88,166,255,0.05); }
     .stack-item-ai .stack-name { color: var(--accent); }
 
+    /* LOCAL BUSINESS */
+    .pkg-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; margin-bottom: 28px; }
+    .pkg { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 20px; }
+    .pkg.featured { border-color: var(--accent); }
+    .pkg-name { font-family: var(--mono); font-size: 12px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
+    .pkg-price { font-size: 26px; font-weight: 600; margin-bottom: 4px; }
+    .pkg-price small { font-size: 13px; color: var(--fg2); font-weight: 400; }
+    .pkg ul { margin: 12px 0 0 18px; color: var(--fg2); font-size: 13.5px; line-height: 1.7; }
+    .sample-row { display: flex; flex-wrap: wrap; gap: 10px; margin: 8px 0 28px; }
+    .sample-row a { font-family: var(--mono); font-size: 12px; color: var(--fg); text-decoration: none; background: var(--surface); border: 1px solid var(--border2); border-radius: 6px; padding: 9px 14px; }
+    .sample-row a:hover { border-color: var(--accent); }
+    .project-subhead { font-family: var(--mono); font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; margin: 10px 0 -4px; }
+    .pbadge-rn { color: var(--purple); border-color: rgba(130,80,223,0.4); background: rgba(130,80,223,0.08); }
+
     /* FOOTER */
     footer {
       max-width: 860px; margin: 0 auto; padding: 28px 40px;
@@ -230,6 +244,7 @@
 <nav>
   <div class="nav-logo">jason<span>.</span>dev</div>
   <div class="nav-links">
+    <a href="#local">Local Business</a>
     <a href="#projects">Projects</a>
     <a href="#stack">Stack</a>
     <a href="#ai">AI Workflow</a>
@@ -240,19 +255,18 @@
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-tag">Available for freelance · remote work</div>
-  <h1>Self-taught.<br>Production-grade.<br><span class="hl">Ships fast.</span></h1>
-  <p class="hero-sub">I build full-stack web applications, investigative data tools, and production sites. No degree — just working code in the real world.</p>
+  <div class="hero-tag">Coeur d'Alene · Spokane · remote</div>
+  <h1>Websites that<br>bring in<br><span class="hl">local customers.</span></h1>
+  <p class="hero-sub">I build fast, mobile-friendly sites for local businesses, plus full-stack apps and a live Google Play app. Fixed prices, a free homepage mockup, and ongoing care so your site never goes stale.</p>
   <div class="hero-creds">
     <span class="cred-chip">U.S. Army Veteran</span>
-    <span class="cred-chip">Self-Taught</span>
-    <span class="cred-chip">2 Live Production Apps</span>
+    <span class="cred-chip">A.S. Software Development</span>
+    <span class="cred-chip">3 Live Production Projects</span>
     <span class="cred-chip">React · Node · Supabase</span>
-    <span class="cred-chip">AI-Augmented Dev</span>
-    <span class="cred-chip">Deployed on Railway</span>
+    <span class="cred-chip">Mobile app on Google Play</span>
   </div>
   <div class="hero-actions">
-    <a href="#contact" class="btn-primary">Get in Touch</a>
+    <a href="#local" class="btn-primary">See Packages</a>
     <a href="#projects" class="btn-ghost">See My Work ↓</a>
   </div>
 </section>
@@ -273,13 +287,82 @@
   <span class="skill-tag">Responsive Design</span>
 </div>
 
+<!-- LOCAL BUSINESS -->
+<section class="section" id="local">
+  <div class="section-eyebrow">For local businesses</div>
+  <h2>Websites for Local Business</h2>
+  <p class="section-intro">Plumbers, salons, restaurants, contractors, shops: if customers can't find you or your site is hard to use on a phone, you're losing calls. Simple fixed pricing, no surprises.</p>
+  <div class="pkg-grid">
+    <div class="pkg">
+      <div class="pkg-name">Starter</div>
+      <div class="pkg-price">$350–$500 <small>one time</small></div>
+      <ul>
+        <li>1-page mobile-first site</li>
+        <li>Services, hours, map, click-to-call</li>
+        <li>Contact form</li>
+        <li>Google Business Profile tune-up</li>
+      </ul>
+    </div>
+    <div class="pkg featured">
+      <div class="pkg-name">Plus</div>
+      <div class="pkg-price">$750–$1,200 <small>one time</small></div>
+      <ul>
+        <li>4–5 pages and photo gallery</li>
+        <li>Booking or quote-request link</li>
+        <li>Basic local SEO</li>
+        <li>Everything in Starter</li>
+      </ul>
+    </div>
+    <div class="pkg">
+      <div class="pkg-name">Care plan</div>
+      <div class="pkg-price">$40 <small>per month</small></div>
+      <ul>
+        <li>Hosting and domain renewal</li>
+        <li>Small edits (up to 30 min/mo)</li>
+        <li>Uptime checks</li>
+        <li>Cancel any time</li>
+      </ul>
+    </div>
+  </div>
+  <div class="sample-row">
+    <a href="/samples/plumbing.html">Sample: plumbing company →</a>
+    <a href="/samples/salon.html">Sample: hair salon →</a>
+    <a href="/samples/restaurant.html">Sample: restaurant →</a>
+  </div>
+  <a class="btn-primary" href="mailto:jasonstanl3y@gmail.com?subject=Free%20homepage%20mockup&body=Business%20name%3A%0AWebsite%20(if%20any)%3A%0AWhat%20I%20need%3A%0A">Get a free homepage mockup</a>
+</section>
+
 <!-- PROJECTS -->
 <section class="section" id="projects">
   <div class="section-eyebrow">Work</div>
   <h2>Production Projects</h2>
-  <p class="section-intro">Both apps are live, handling real users, and deployed to Railway. Not side projects — active operations.</p>
+  <p class="section-intro">Live, deployed, and used by real people. Not tutorials or side projects.</p>
 
   <div class="projects">
+
+    <!-- SERENOVA -->
+    <div class="project-card">
+      <div class="project-head">
+        <div>
+          <div class="project-title">Serenova — AI wellness companion</div>
+          <a href="https://play.google.com/store/apps/details?id=com.resonanthealth.serenova" target="_blank" rel="noopener" class="project-url">Google Play ↗</a>
+          <div class="project-badges">
+            <span class="pbadge pbadge-live">Live on Google Play</span>
+            <span class="pbadge pbadge-rn">React Native / Expo</span>
+            <span class="pbadge pbadge-node">Node / Express</span>
+          </div>
+        </div>
+      </div>
+      <div class="project-body">
+        <div class="case-study">
+          <div class="cs-block"><span class="cs-label">Problem</span><span class="cs-text">People need a calm place to talk, track their mood and find real help at any hour, without it pretending to replace professional care.</span></div>
+          <div class="cs-block"><span class="cs-label">Built</span><span class="cs-text">Cross-platform mobile app with an AI chat companion, mood check-ins, journaling with AI reflections, breathing and wellness tools, a Find Help directory with crisis lines, and Free / Plus / Pro subscriptions through RevenueCat. Node backend on Railway.</span></div>
+          <div class="cs-block"><span class="cs-label">Outcome</span><span class="cs-text">Published and maintained on Google Play, shipped through multiple releases. Clear in-app messaging that it is not a substitute for professional care, with 988 and local resources built in.</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-subhead">Research &amp; investigative platforms</div>
 
     <!-- PROJECT 1 -->
     <div class="project-card">
@@ -401,7 +484,7 @@
   <div class="about-grid">
     <div class="about-block">
       <h3>The short version</h3>
-      <p>U.S. Army veteran turned investigative journalist. I taught myself to code by building tools I actually needed — a journalism platform, a research site, a public records tracker. No bootcamp, no degree. Two production apps, real users, real data.</p>
+      <p>U.S. Army veteran with an associate's degree in software development, based in Coeur d'Alene. I build tools I actually need: a mobile app, a research site and a public records platform. Real users, real data.</p>
     </div>
     <div class="about-block">
       <h3>What I can build for you</h3>
@@ -420,7 +503,7 @@
 <section class="section" id="contact">
   <div class="contact-box">
     <h3>Let's work together</h3>
-    <p>Available for freelance projects. I work fast, communicate clearly, and ship working code. No degree — but two live production apps say more than a transcript.</p>
+    <p>Tell me about your business and I'll send a free homepage mockup, no obligation. Also available for freelance and remote web projects.</p>
     <div class="contact-email">jasonstanl3y@gmail.com</div>
     <div class="contact-links">
       <a href="mailto:jasonstanl3y@gmail.com" class="btn-primary">Send an Email</a>
@@ -432,7 +515,7 @@
 </section>
 
 <footer>
-  <div class="footer-left">Jason Stanley · Self-taught developer · U.S. Army Veteran</div>
+  <div class="footer-left">Jason Stanley · Coeur d'Alene, Idaho · U.S. Army Veteran</div>
   <div class="footer-right">
     <a href="https://stanleyresearchgroup.com" target="_blank" rel="noopener">Research Work</a>
     <a href="https://kootenaicountycorruption.org" target="_blank" rel="noopener">Journalism</a>
